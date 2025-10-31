@@ -1,0 +1,44 @@
+
+[tool.poetry]
+name = "ai-agent-evaluation"
+version = "0.0.1"
+description = "Generative AI application evaluation with Foundry"
+authors = ["robincvlr"]
+license = "MIT"
+readme = "README.md"
+package-mode = false
+homepage = "https://github.com/robincvlr/ai-agent-evaluation"
+repository = "https://github.com/robincvlr/ai-agent-evaluation"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+azure-identity = "^1.25"
+azure-ai-evaluation = "^1.13.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0"
+pytest-asyncio = "^0.23.0"
+pytest-cov = "^5.0"
+ruff = "^0.4.4"
+black = "^24.4"
+isort = "^5.13.2"
+python-semantic-release = "^8.0.0"
+pre-commit = "^3.6.0"
+build = "^1.0.3"
+
+[tool.semantic_release]
+version_variable = ["src/__init__.py:__version__"]
+version_source = "tag"
+upload_to_pypi = false
+upload_to_release = false
+build_command = "poetry build"
+branch = "main"
+changelog_file = "CHANGELOG.md"
+commit_author = "semantic-release"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+[build-system]
+requires = ["poetry-core>=1.6.0"]
+build-backend = "poetry.core.masonry.api"
